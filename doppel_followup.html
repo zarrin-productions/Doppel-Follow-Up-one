@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zarrin Productions — Follow Up for Matt, Doppel</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate: #2e3d45;
+    --gold: #e5aa21;
+    --blue: #2B5FEA;
+    --offwhite: #f5f7f9;
+    --dark: #1a2530;
+    --mid: #4a5c66;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--offwhite);
+    color: var(--slate);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--slate);
+    color: white;
+    padding: 80px 60px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.06;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 38%;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.07;
+  }
+  .wordmark {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 14px;
+  }
+  .wordmark span { color: var(--gold); font-style: italic; }
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 36px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.5vw, 60px);
+    font-weight: 900;
+    line-height: 1.08;
+    max-width: 780px;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-body {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 60px; }
+
+  .section-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+    display: block;
+  }
+  h2 {
+    font-size: clamp(26px, 3.2vw, 40px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+  }
+  .section-intro {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.75;
+    max-width: 600px;
+    margin-bottom: 52px;
+  }
+
+  /* THANK YOU BLOCK */
+  .thankyou { background: white; border-left: 4px solid var(--gold); }
+  .ty-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .ty-text p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--mid);
+    margin-bottom: 18px;
+  }
+  .ty-text p strong { color: var(--slate); font-weight: 700; }
+  .recap-box {
+    background: var(--slate);
+    padding: 36px;
+    border-radius: 4px;
+  }
+  .recap-box h3 {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .recap-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .recap-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .recap-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .recap-title { font-size: 13px; font-weight: 700; color: white; margin-bottom: 3px; }
+  .recap-detail { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* SAMPLES */
+  .samples { background: var(--offwhite); }
+  .samples-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .samples-grid-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 66.66%;
+  }
+
+  .sample-card {
+    background: var(--slate);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.2s;
+  }
+  .sample-card:hover { transform: translateY(-3px); }
+  .sample-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    opacity: 0.7;
+    background: var(--slate);
+    min-height: 150px;
+    transition: opacity 0.2s;
+  }
+  .sample-card:hover .sample-thumb { opacity: 0.5; }
+  .sample-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 18px;
+    background: linear-gradient(0deg, rgba(26,37,48,0.96) 0%, transparent 100%);
+  }
+  .sample-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .sample-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+  }
+  .play-circle {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px; height: 46px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .sample-card:hover .play-circle { opacity: 1; }
+  .play-circle::after {
+    content: '';
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 7px 0 7px 12px;
+    border-color: transparent transparent transparent var(--slate);
+    margin-left: 2px;
+  }
+
+  .more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    background: var(--slate);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .more-btn:hover { background: var(--dark); }
+  .more-btn::after { content: '→'; }
+
+  /* PRICING */
+  .pricing { background: white; }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .plan {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e0e6ea;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .plan:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(46,61,69,0.12); }
+  .plan.featured {
+    border: 2px solid var(--blue);
+  }
+
+  .plan-head {
+    padding: 36px 32px 28px;
+    position: relative;
+  }
+  .plan-head.tier1 { background: var(--offwhite); }
+  .plan-head.tier2 { background: var(--slate); }
+  .plan-head.tier3 { background: var(--dark); }
+
+  .featured-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--blue);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .plan-tier {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .tier1 .plan-tier { color: var(--mid); }
+  .tier2 .plan-tier { color: rgba(255,255,255,0.5); }
+  .tier3 .plan-tier { color: rgba(255,255,255,0.5); }
+
+  .plan-name {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+  .tier1 .plan-name { color: var(--slate); }
+  .tier2 .plan-name { color: white; }
+  .tier3 .plan-name { color: white; }
+
+  .plan-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .tier1 .plan-desc { color: var(--mid); }
+  .tier2 .plan-desc { color: rgba(255,255,255,0.55); }
+  .tier3 .plan-desc { color: rgba(255,255,255,0.55); }
+
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .plan-currency {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .tier1 .plan-currency { color: var(--slate); }
+  .tier2 .plan-currency { color: var(--gold); }
+  .tier3 .plan-currency { color: var(--gold); }
+
+  .plan-price {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .tier1 .plan-price { color: var(--slate); }
+  .tier2 .plan-price { color: white; }
+  .tier3 .plan-price { color: white; }
+
+  .plan-unit {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tier1 .plan-unit { color: var(--mid); }
+  .tier2 .plan-unit { color: rgba(255,255,255,0.45); }
+  .tier3 .plan-unit { color: rgba(255,255,255,0.45); }
+
+  .plan-body {
+    padding: 28px 32px 36px;
+    background: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-section-label {
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--offwhite);
+    margin-top: 20px;
+  }
+  .plan-section-label:first-child { margin-top: 0; }
+
+  .plan-features { list-style: none; }
+  .plan-features li {
+    font-size: 12.5px;
+    color: var(--mid);
+    line-height: 1.55;
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .plan-features li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .plan-features li.strong {
+    font-weight: 700;
+    color: var(--slate);
+  }
+
+  .plan-note {
+    margin-top: auto;
+    padding-top: 20px;
+    font-size: 11.5px;
+    color: var(--mid);
+    line-height: 1.6;
+    font-style: italic;
+    border-top: 1px solid var(--offwhite);
+  }
+
+  /* VOLUME */
+  .volume { background: var(--offwhite); }
+  .vol-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: #dce3e8;
+  }
+  .vol-cell {
+    background: white;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .vol-cell.head {
+    background: var(--slate);
+  }
+  .vol-range {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .vol-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+  .vol-discount {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--gold);
+    color: var(--slate);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .vol-head-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* NEXT STEPS */
+  .nextsteps { background: var(--slate); color: white; }
+  .nextsteps h2 { color: white; }
+  .nextsteps .section-intro { color: rgba(255,255,255,0.55); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+  .step {
+    background: var(--slate);
+    padding: 36px 32px;
+  }
+  .step-num {
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .step h3 { font-size: 15px; font-weight: 800; color: white; margin-bottom: 10px; }
+  .step p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.35);
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  footer .wm { font-size: 13px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  footer .wm span { color: var(--gold); font-style: italic; }
+
+  @media (max-width: 900px) {
+    section { padding: 56px 24px; }
+    .hero { padding: 56px 24px 64px; }
+    .ty-inner, .pricing-grid, .steps-grid { grid-template-columns: 1fr; }
+    .samples-grid { grid-template-columns: 1fr 1fr; }
+    .samples-grid-bottom { max-width: 100%; grid-template-columns: 1fr 1fr; }
+    .vol-grid { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wordmark">ZARRIN <span>PRODUCTIONS</span></div>
+  <div class="hero-label">Follow Up · Matt Kaneb · Doppel · April 2026</div>
+  <h1>Great connecting with you, <em>Matt.</em></h1>
+  <p class="hero-body">Thank you for taking the time to walk us through what Doppel is building. The conversation gave us a clear picture of where we can add the most value and we are excited about what a collaboration could look like. Below you will find our work samples and a breakdown of how we price our production work.</p>
+</section>
+
+<!-- THANK YOU -->
+<section class="thankyou">
+  <span class="section-tag">From Our Conversation</span>
+  <h2>Here is what we took away.</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+    <p style="font-size: 15px; line-height: 1.85; color: var(--mid);">We really appreciated the candid walkthrough of Doppel's content needs and how the team is currently structured. <strong style="color: var(--slate); font-weight: 700;">What stood out most to us is that the opportunity is not just about training modules</strong> — it is about building a content engine that can grow with Doppel as you scale and deepen your Human Risk Management product line.</p>
+    <div>
+      <p style="font-size: 15px; line-height: 1.85; color: var(--mid); margin-bottom: 20px;">Our background puts us in a genuinely rare position for this kind of work. The intersection of a Master's in Cybersecurity, a Bachelor's in Digital Marketing and E-commerce, a background in instructional design from university-level teaching, and a team that has produced large-scale educational content at volume means we do not need a ramp-up period to understand the material. The technical depth, the marketing lens, and the ability to structure content for real learners — that combination is genuinely hard to find in one place.</p>
+      <p style="font-size: 15px; line-height: 1.85; color: var(--mid);">We are ready to move fast on your test brief. Whenever you are ready to send it over, we will turn around something custom to Doppel so you can see exactly how we work — not a generic sample, but something built to your spec.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section class="samples">
+  <span class="section-tag">Our Work</span>
+  <h2>Samples of what we produce.</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 52px;">
+    <p class="section-intro" style="margin-bottom: 0;">A selection of work spanning general security, educational and training content. Click any sample to view.</p>
+    <p class="section-intro" style="margin-bottom: 0; color: var(--mid);">Each sample reflects our end-to-end production process — scripting, visual design, motion, and delivery. The full portfolio contains significantly more work across additional formats and industries.</p>
+  </div>
+
+  <div class="samples-grid">
+    <a class="sample-card" href="https://drive.google.com/file/d/1zG7GX4D2V5LLrUXJeDyCOyj3UMDGTZqg/view?usp=sharing" target="_blank" rel="noopener">
+      <img class="sample-thumb" src="https://drive.google.com/thumbnail?id=1zG7GX4D2V5LLrUXJeDyCOyj3UMDGTZqg&sz=w800-h450" alt="Sample 1" onerror="this.style.minHeight='160px'">
+      <div class="play-circle"></div>
+      <div class="sample-overlay">
+        <div class="sample-title">Sample 1</div>
+      </div>
+    </a>
+    <a class="sample-card" href="https://drive.google.com/file/d/13mxB8xcU-9rNvXfVn_l6cnBOrmltbmDx/view?usp=sharing" target="_blank" rel="noopener">
+      <img class="sample-thumb" src="https://drive.google.com/thumbnail?id=13mxB8xcU-9rNvXfVn_l6cnBOrmltbmDx&sz=w800-h450" alt="Sample 2" onerror="this.style.minHeight='160px'">
+      <div class="play-circle"></div>
+      <div class="sample-overlay">
+        <div class="sample-title">Sample 2</div>
+      </div>
+    </a>
+    <a class="sample-card" href="https://drive.google.com/file/d/1_N7dFtPm8rV4fILIwcbF3y8cmLGzQtjg/view?usp=sharing" target="_blank" rel="noopener">
+      <img class="sample-thumb" src="https://drive.google.com/thumbnail?id=1_N7dFtPm8rV4fILIwcbF3y8cmLGzQtjg&sz=w800-h450" alt="Sample 3" onerror="this.style.minHeight='160px'">
+      <div class="play-circle"></div>
+      <div class="sample-overlay">
+        <div class="sample-title">Sample 3</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="samples-grid-bottom">
+    <a class="sample-card" href="https://drive.google.com/file/d/1NuLU4Gh7GZDqD58KUAJjzpQtxTaUe15R/view?usp=sharing" target="_blank" rel="noopener">
+      <img class="sample-thumb" src="https://drive.google.com/thumbnail?id=1NuLU4Gh7GZDqD58KUAJjzpQtxTaUe15R&sz=w800-h450" alt="Sample 4" onerror="this.style.minHeight='160px'">
+      <div class="play-circle"></div>
+      <div class="sample-overlay">
+        <div class="sample-title">Sample 4</div>
+      </div>
+    </a>
+    <a class="sample-card" href="https://drive.google.com/file/d/1jT8A4PJ10YZRZInI1Zzi3Qjp4wdgoyNx/view?usp=sharing" target="_blank" rel="noopener">
+      <img class="sample-thumb" src="https://drive.google.com/thumbnail?id=1jT8A4PJ10YZRZInI1Zzi3Qjp4wdgoyNx&sz=w800-h450" alt="Sample 5" onerror="this.style.minHeight='160px'">
+      <div class="play-circle"></div>
+      <div class="sample-overlay">
+        <div class="sample-title">Sample 5</div>
+      </div>
+    </a>
+  </div>
+
+  <a class="more-btn" href="https://drive.google.com/drive/folders/1Wk6HlQyiQmmzHdaZ3bFid6taa7lvv0qN?usp=sharing" target="_blank" rel="noopener">View More Samples</a>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <span class="section-tag">Production Pricing</span>
+  <h2>Four tiers. Choose by what matters most to you.</h2>
+  <p class="section-intro">Every tier includes scripting, production, editing, and delivery from the full Zarrin team. The tiers differ in production depth, visual complexity, and turnaround speed.</p>
+
+  <!-- COMPARISON STRIP -->
+  <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); gap: 2px; background: var(--offwhite); margin-bottom: 28px; border-radius: 4px; overflow: hidden;">
+    <div style="background: var(--slate); padding: 18px 16px; display: flex; align-items: flex-end;">
+      <span style="font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4);">What you get</span>
+    </div>
+    <div style="background: var(--offwhite); padding: 18px 16px; text-align: center;">
+      <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); margin-bottom: 4px;">Essential</div>
+      <div style="font-size: 26px; font-weight: 900; color: var(--slate);">$95</div>
+    </div>
+    <div style="background: var(--slate); padding: 18px 16px; text-align: center;">
+      <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px;">Professional</div>
+      <div style="font-size: 26px; font-weight: 900; color: var(--gold);">$145</div>
+    </div>
+    <div style="background: #1a2530; padding: 18px 16px; text-align: center;">
+      <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px;">Premium</div>
+      <div style="font-size: 26px; font-weight: 900; color: var(--gold);">$195</div>
+    </div>
+    <div style="background: var(--blue); padding: 18px 16px; text-align: center; position: relative;">
+      <div style="font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 4px;">⚡ Lightning</div>
+      <div style="font-size: 26px; font-weight: 900; color: white;">$245</div>
+    </div>
+  </div>
+
+  <!-- FEATURE ROWS -->
+  <div style="border: 1px solid #dde3e8; border-radius: 4px; overflow: hidden; margin-bottom: 36px;">
+    <!-- Row headers -->
+    <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); background: var(--offwhite);">
+      <div style="padding: 0;"></div>
+      <div style="padding: 10px 14px; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid);">Essential</div>
+      <div style="padding: 10px 14px; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate); background: rgba(46,61,69,0.06);">Professional</div>
+      <div style="padding: 10px 14px; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate);">Premium</div>
+      <div style="padding: 10px 14px; text-align: center; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue);">⚡ Lightning</div>
+    </div>
+
+    <!-- rows -->
+    <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); border-top: 1px solid #edf0f2;">
+      <div style="padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--mid); background: #fafbfc;">Script writing</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">Standard</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate); background: rgba(46,61,69,0.03);">With learning objectives</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">Scenario-structured</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--blue); font-weight: 700;">Scenario-structured</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); border-top: 1px solid #edf0f2;">
+      <div style="padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--mid); background: #fafbfc;">Motion graphics</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">Standard titles</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate); background: rgba(46,61,69,0.03);">Custom animated graphics</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">Full VFX and effects</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--blue); font-weight: 700;">Full VFX and effects</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); border-top: 1px solid #edf0f2;">
+      <div style="padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--mid); background: #fafbfc;">Revisions</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">2 rounds</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate); background: rgba(46,61,69,0.03);">3 rounds</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">Unlimited in scope</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--blue); font-weight: 700;">Unlimited in scope</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); border-top: 1px solid #edf0f2;">
+      <div style="padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--mid); background: #fafbfc;">LMS export</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 18px; color: #ccc;">—</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 18px; color: #ccc; background: rgba(46,61,69,0.03);">—</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">Included</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--blue); font-weight: 700;">Included</div>
+    </div>
+    <div style="display: grid; grid-template-columns: 160px repeat(4, 1fr); border-top: 1px solid #edf0f2;">
+      <div style="padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--mid); background: #fafbfc;">Turnaround</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">3 to 4 days</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate); background: rgba(46,61,69,0.03);">2 to 3 days</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--slate);">2 to 3 days</div>
+      <div style="padding: 12px 14px; text-align: center; font-size: 13px; color: var(--blue); font-weight: 700;">Lightning fast · highest priority</div>
+    </div>
+  </div>
+
+  <!-- LIGHTNING CALLOUT -->
+  <div style="background: var(--blue); border-radius: 4px; padding: 36px 40px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;">
+    <div>
+      <div style="font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 10px;">⚡ Lightning Tier</div>
+      <div style="font-size: 26px; font-weight: 900; color: white; margin-bottom: 10px; letter-spacing: -0.3px;">Need it delivered super fast?</div>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.75; max-width: 560px;">The Lightning tier delivers the same premium production quality — full motion graphics, scenario scripting, and LMS export — at the absolute highest priority. Your project goes to the front of the queue and we move on it immediately. Built for urgent launches, live deadlines, and anything that cannot wait.</p>
+    </div>
+    <div style="text-align: center; flex-shrink: 0;">
+      <div style="font-size: 52px; font-weight: 900; color: white; line-height: 1; letter-spacing: -2px;">$245</div>
+      <div style="font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); margin-top: 4px;">per video</div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUME DISCOUNTS -->
+<section class="volume">
+  <span class="section-tag">Volume Pricing</span>
+  <h2>The more you build, the better the rate.</h2>
+  <p class="section-intro">Given the scale of the training library Doppel is building, volume pricing applies automatically. No negotiation required.</p>
+
+  <div class="vol-grid">
+    <div class="vol-cell head">
+      <div class="vol-head-label">Videos per batch</div>
+    </div>
+    <div class="vol-cell">
+      <div class="vol-range">1 to 9</div>
+      <div class="vol-label">Standard rate</div>
+      <div class="vol-discount">No discount</div>
+    </div>
+    <div class="vol-cell">
+      <div class="vol-range">10 to 24</div>
+      <div class="vol-label">Growth batch</div>
+      <div class="vol-discount">10% off per video</div>
+    </div>
+    <div class="vol-cell">
+      <div class="vol-range">25+</div>
+      <div class="vol-label">Scale batch</div>
+      <div class="vol-discount">15% off per video</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 24px; background: white; border-left: 4px solid var(--gold); padding: 24px 28px; max-width: 720px; border-radius: 0 4px 4px 0;">
+    <p style="font-size: 13px; color: var(--mid); line-height: 1.75;">Custom pricing is also available for retainer arrangements — monthly volume commitments that lock in a preferred rate and guarantee capacity. If the training library is going to span dozens of modules, a retainer conversation makes sense. We are happy to put that together after the test brief stage.</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="nextsteps">
+  <span class="section-tag" style="color: var(--gold);">What Happens Next</span>
+  <h2>The path forward from here.</h2>
+  <p class="section-intro">No pressure, no rush. Here is the sequence we would suggest.</p>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>You send the test brief</h3>
+      <p>Share the test brief whenever it is ready. We will review it, confirm scope, and get started immediately. The goal is to produce something that is fully custom to Doppel — not a generic sample.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>We deliver the test</h3>
+      <p>You will receive a finished sample built to your exact spec. You review it with your team, give us feedback, and decide whether the quality and approach is the right fit for what you are building.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>We align on scope and get started</h3>
+      <p>Once the test lands, we schedule a short follow-up to align on volume, tier, timeline, and format. From there we move into production without delay. We move as fast as Doppel needs to move.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wm">ZARRIN <span>PRODUCTIONS</span></div>
+  <div>Follow up for Doppel &nbsp;&middot;&nbsp; Matt Kaneb &nbsp;&middot;&nbsp; April 2026</div>
+</footer>
+
+</body>
+</html>
